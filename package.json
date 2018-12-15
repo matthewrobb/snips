@@ -1,0 +1,23 @@
+{
+  "name": "snips",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx webpack --config ./webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewrobb/snips.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matthewrobb/snips/issues"
+  },
+  "homepage": "https://github.com/matthewrobb/snips#readme",
+  "devDependencies": {
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
