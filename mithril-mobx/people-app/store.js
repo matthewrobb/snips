@@ -18,7 +18,7 @@ export class Store {
 
   @observable people = [];
 
-  addPerson(personData) {
+  @action.bound addPerson(personData) {
     this.people.push(new Person(personData));
   }
 }
