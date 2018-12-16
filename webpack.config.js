@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './mithril-mobx/index.js',
+  entry: './snips/mithril-mobx/index.js',
   mode: 'none',
   output: {
     filename: 'bundle.js',
