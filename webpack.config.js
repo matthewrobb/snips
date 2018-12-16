@@ -10,6 +10,10 @@ module.exports = {
   devtool: 'inline-source-map',
   module: {
     rules: [
+      {
+        test: /\.(html)$/,
+        use: ['file-loader?name=[name].[ext]', 'extract-loader', 'html-loader']
+      },
       { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
     ]
   }
