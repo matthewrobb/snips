@@ -5,7 +5,7 @@ module.exports = {
   mode: 'none',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, './_public/mithril-mobx')
+    path: path.resolve(__dirname, './public/mithril-mobx')
   },
   devtool: 'inline-source-map',
   module: {
