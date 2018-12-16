@@ -1,26 +1,37 @@
-const { autorun, observable, computed, action } = window.mobx;
+const { observable, computed, action, decorate } = window.mobx;
 
 export class Person {
-  @observable firstName = "";
-  @observable lastName = "";
-
-  constructor(personData = {}) {
-    Object.assign(this, personData);
+  constructor({ firstName = "", lastName = "" } = {}) {
+    this.firstName = firstName;
+    this.lastName = lastName;
   }
 
-  @computed get fullName() {
+  get fullName() {
     return `${this.firstName} ${this.lastName}`;
   }
 }
 
+decorate(Person, {
+  firstName : observable,
+  lastName  : observable,
+  fullName  : computed
+});
+
 export class Store {
-  @observable.ref container = null;
-
-  @observable people = [];
-
-  @action.bound addPerson(personData) {
+  constructor() {
+    this.container = null;
+    this.people = [];
+  }
+  
+  addPerson(personData) {
     this.people.push(new Person(personData));
   }
 }
+
+decorate(Store, {
+  container : observable.ref,
+  people    : observable,
+  addPerson : action.bound
+});
 
 export default Store;

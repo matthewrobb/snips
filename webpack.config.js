@@ -2,7 +2,10 @@ const path = require('path');
 
 function snip(name) {
   return {
-    entry: `./src/${name}/index.js`,
+    entry: [
+      `./src/${name}/index.js`,
+      `./src/${name}/index.html`
+    ],
     mode: 'none',
     output: {
       filename: 'bundle.js',
@@ -12,10 +15,18 @@ function snip(name) {
     module: {
       rules: [
         {
-          test: /\.(html)$/,
-          use: ['file-loader?name=[name].[ext]', 'extract-loader', 'html-loader']
+          test: /\.html$/,
+          use: [
+            'file-loader?name=[name].[ext]',
+            'extract-loader',
+            'html-loader'
+          ]
         },
-        { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          loader: "babel-loader"
+        }
       ]
     }
   };

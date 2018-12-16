@@ -1,5 +1,3 @@
-import "./index.html";
-
 import { store } from "./people-app";
 
 store.container = document.body;
